@@ -29,7 +29,7 @@
     "api:generate": "api-documenter markdown --input-folder temp --output-folder docs/",
     "docs": "npm run build:types && npm run api:extract && npm run api:generate",
     "docs:production": "npm run build:types && npm run api:extract:production && npm run api:generate",
-    "build:production": "export NODE_ENV=production || set NODE_ENV=production && npm run build",
+    "build:production": "set NODE_ENV=production&&npm run build",
     "prepublish": "npm run prettier && npm run docs:production && npm run build:production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -46,6 +46,7 @@
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
     "concurrently": "^6.2.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "^3.4.0",

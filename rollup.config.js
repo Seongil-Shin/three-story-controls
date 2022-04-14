@@ -10,6 +10,7 @@ const name = 'ThreeStoryControls'
 const sourcemap = true
 
 const commonPlugins = () => {
+  console.log(process.env.NODE_ENV)
   const plugins = [
     eslint(),
     typescript(),
@@ -18,7 +19,7 @@ const commonPlugins = () => {
       plugins: [nested()],
     }),
   ]
-  if (NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production') {
     plugins.push(terser())
   }
   return plugins
@@ -27,7 +28,7 @@ const commonPlugins = () => {
 const umdConfig = {
   input,
   output: {
-    file: `dist/three-story-controls${NODE_ENV == 'production' ? '.min' : ''}.js`,
+    file: `dist/three-story-controls${process.env.NODE_ENV == 'production' ? '.min' : ''}.js`,
     format: 'umd',
     name,
     sourcemap,
@@ -43,7 +44,7 @@ const umdConfig = {
 const esmConfig = {
   input,
   output: {
-    file: `dist/three-story-controls.esm${NODE_ENV == 'production' ? '.min' : ''}.js`,
+    file: `dist/three-story-controls.esm${process.env.NODE_ENV == 'production' ? '.min' : ''}.js`,
     format: 'es',
     name,
     sourcemap,
