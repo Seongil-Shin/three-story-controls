@@ -4,13 +4,11 @@ import { terser } from 'rollup-plugin-terser'
 import postcss from 'rollup-plugin-postcss'
 import nested from 'postcss-nested'
 
-const { NODE_ENV } = process.env
 const input = 'src/index.ts'
 const name = 'ThreeStoryControls'
 const sourcemap = true
 
 const commonPlugins = () => {
-  console.log(process.env.NODE_ENV)
   const plugins = [
     eslint(),
     typescript(),

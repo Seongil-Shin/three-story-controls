@@ -11,7 +11,7 @@ import {
   HemisphereLight,
 } from 'three'
 import { CameraRig, ScrollControls, ThreeDOFControls } from 'three-story-controls'
-import cameraData from './camera-data.js'
+import cameraData from './camera-data.json'
 
 const canvasParent = document.querySelector('.canvas-parent')
 const scrollElement = document.querySelector('.scroller')

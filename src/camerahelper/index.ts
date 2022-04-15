@@ -142,6 +142,13 @@ export class CameraHelper {
   private playStartTime: number
   private useSlerp = true
 
+  private poiIndexSelected: number | null
+  private tempImage: string | null
+  private tempCoord: {
+    position: Vector3
+    quaternion: Quaternion
+  } | null = null
+
   constructor(rig: CameraRig, controls: FreeMovementControls, canvas: HTMLCanvasElement, canvasParent?: HTMLElement) {
     this.rig = rig
     this.controls = controls
@@ -151,6 +158,8 @@ export class CameraHelper {
     this.doCapture = false
     this.isPlaying = false
     this.initUI(canvasParent)
+    this.poiIndexSelected = null
+    this.tempImage = null
   }
 
   private capture(): void {
@@ -166,8 +175,8 @@ export class CameraHelper {
       ctx.drawImage(this.canvas, 0, 0, canvas.width, canvas.height)
       const image = canvas.toDataURL()
 
-      this.addPoi(image)
       this.doCapture = false
+      this.addPoi(image)
     }
     if (this.isPlaying) {
       if (!this.playStartTime) {
@@ -187,12 +196,31 @@ export class CameraHelper {
   }
 
   private addPoi(image: string): void {
-    this.pois.push({
-      ...this.rig.getWorldCoordinates(),
+    // 맨뒤에 점 추가
+    let res = null,
+      coord = this.rig.getWorldCoordinates()
+    if (this.poiIndexSelected !== null) {
+      res = this.poiIndexSelected
+      coord = this.tempCoord
+      this.tempImage = null
+      this.poiIndexSelected = null
+      this.drawer.getElementsByClassName('poiIndexSelector')[0].style.visibility = 'hidden'
+    } else if (this.pois.length >= 2) {
+      this.drawer.getElementsByClassName('poiIndexSelector')[0].style.visibility = 'visible'
+      this.drawer.querySelector('.poiIndexSelector form input').max = (this.pois.length - 1).toString()
+      this.tempImage = image
+      this.tempCoord = coord
+      return
+    } else {
+      res = this.pois.length
+    }
+    const newPoi = {
+      ...coord,
       duration: 1,
-      ease: 'power1',
+      ease: 'none',
       image,
-    })
+    }
+    this.pois.splice(res, 0, newPoi)
     this.currentIndex = this.pois.length - 1
     this.createClip()
     this.render()
@@ -450,7 +478,45 @@ export class CameraHelper {
       btnExportImages,
       btnExport,
     )
-    this.drawer.append(btnAdd, this.collapseBtn, this.domList, controlWrapper)
+
+    // 위치 선택창 추가
+    const poiIndexSelector = document.createElement('div')
+    poiIndexSelector.classList.add('poiIndexSelector')
+    const poiAddOnStart = document.createElement('div')
+    poiAddOnStart.innerText = '처음에 추가하기'
+    poiAddOnStart.onclick = (() => {
+      this.poiIndexSelected = 0
+      this.addPoi(this.tempImage)
+    }).bind(this)
+
+    const poiAddOnMiddleForm = document.createElement('form')
+    poiAddOnMiddleForm.onsubmit = ((e) => {
+      e.preventDefault()
+      this.poiIndexSelected = parseInt(e.target[0].value)
+      e.target[0].value = ''
+      this.addPoi(this.tempImage)
+    }).bind(this)
+    const poiAddOnMiddleInput = document.createElement('input')
+    poiAddOnMiddleInput.type = 'number'
+    poiAddOnMiddleInput.min = '1'
+    poiAddOnMiddleInput.value = ''
+    poiAddOnMiddleInput.placeholder = '몇번 뒤에 추가할까요?'
+    const poiAddOnMiddleSubmit = document.createElement('input')
+    poiAddOnMiddleSubmit.type = 'submit'
+    poiAddOnMiddleSubmit.value = '추가'
+
+    poiAddOnMiddleForm.append(poiAddOnMiddleInput, poiAddOnMiddleSubmit)
+
+    const poiAddOnLast = document.createElement('div')
+    poiAddOnLast.onclick = (() => {
+      this.poiIndexSelected = this.pois.length
+      this.addPoi(this.tempImage)
+    }).bind(this)
+    poiAddOnLast.innerText = '마지막에 추가하기'
+    poiIndexSelector.append(poiAddOnStart, poiAddOnMiddleForm, poiAddOnLast)
+    // 커스텀 종료
+
+    this.drawer.append(btnAdd, this.collapseBtn, this.domList, controlWrapper, poiIndexSelector)
 
     const parent = canvasParent || document.body
     parent.append(this.drawer)

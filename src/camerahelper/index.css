@@ -106,4 +106,54 @@
       text-align: center;
     }
   }
+
+  .poiIndexSelector {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20rem;
+    height: 12rem;
+    background-color: white;
+    visibility: hidden;
+    border-radius: 1rem;
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+
+    div {
+      width: 100%;
+      height: 4rem;
+      box-sizing: border-box;
+      padding: 0.25rem;
+      line-height: 3rem;
+      text-align: center;
+      font-size: 1.5rem;
+      border: 1px solid black;
+      cursor: pointer;
+      user-select: none;
+    }
+    div:hover {
+      background-color: rgba(1, 1, 1, 0.1);
+    }
+    div:active {
+      background-color: rgba(1, 1, 1, 0.3);
+      color: white;
+    }
+    form {
+      width: 100%;
+      height: 4rem;
+      display: flex;
+
+      input {
+        font-size: 1.2rem;
+        line-height: 3rem;
+      }
+      input:nth-child(1) {
+        flex-basis: 80%;
+        padding: 0.25rem;
+      }
+      input:nth-child(2) {
+        flex-basis: 20%;
+      }
+    }
+  }
 }

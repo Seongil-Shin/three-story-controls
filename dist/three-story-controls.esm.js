@@ -1729,7 +1729,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = ".tb-ch {\n  width: 350px;\n  height: 100%;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99999;\n  background-color: rgba(255, 255, 255, 0.8);\n  box-sizing: border-box;\n  overflow-x: visible;\n  transition: all 0.2s ease-in-out;\n}\n  .tb-ch.collapsed {\n    left: -350px;\n  }\n  .tb-ch * {\n    box-sizing: border-box;\n  }\n  .tb-ch button {\n    text-transform: capitalize;\n    cursor: pointer;\n  }\n  .tb-ch .btn-round {\n    font-size: 1.8rem;\n    line-height: 1;\n    width: 2.5rem;\n    height: 2.5rem;\n    position: absolute;\n    right: -3rem;\n    bottom: 0.5rem;\n  }\n  .tb-ch .btn-round.collapse {\n      bottom: 3.5rem;\n    }\n  .tb-ch .controls {\n    position: absolute;\n    bottom: 0;\n    height: 225px;\n    border-top: 1px solid black;\n    padding: 0.5rem;\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n  }\n  .tb-ch .btn-text {\n    padding: 0.5rem;\n    text-align: center;\n    width: 100%;\n  }\n  .tb-ch input[type='range'] {\n    width: 100%;\n  }\n  .tb-ch .pois {\n    height: calc(100vh - 225px - 1rem);\n    overflow: scroll;\n    padding: 1rem 1rem 0;\n  }\n  .tb-ch .poi {\n    margin-bottom: 1rem;\n  }\n  .tb-ch .poi h2 {\n      font-size: 1rem;\n    }\n  .tb-ch .poi .wrapper {\n      display: flex;\n      flex-direction: row;\n    }\n  .tb-ch .poi img {\n      display: block;\n      max-width: 100%;\n      min-width: 0;\n      margin-right: 0.5rem;\n    }\n  .tb-ch .poi .poi-controls {\n      display: flex;\n      flex-direction: column;\n    }\n  .tb-ch .poi .poi-controls button {\n        padding: 0.5rem;\n        width: 2rem;\n        height: 2rem;\n        margin-bottom: 0.25rem;\n      }\n  .tb-ch .poi .poi-params {\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap;\n      width: calc(100% - 2.5rem);\n    }\n  .tb-ch .poi label,\n    .tb-ch .poi input,\n    .tb-ch .poi select {\n      width: 50%;\n      font-size: 0.7rem;\n      font-family: monospace;\n      margin: 0.25rem 0;\n    }\n  .tb-ch .poi input {\n      text-align: center;\n    }\n";
+var css_248z = ".tb-ch {\n  width: 350px;\n  height: 100%;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99999;\n  background-color: rgba(255, 255, 255, 0.8);\n  box-sizing: border-box;\n  overflow-x: visible;\n  transition: all 0.2s ease-in-out;\n}\n  .tb-ch.collapsed {\n    left: -350px;\n  }\n  .tb-ch * {\n    box-sizing: border-box;\n  }\n  .tb-ch button {\n    text-transform: capitalize;\n    cursor: pointer;\n  }\n  .tb-ch .btn-round {\n    font-size: 1.8rem;\n    line-height: 1;\n    width: 2.5rem;\n    height: 2.5rem;\n    position: absolute;\n    right: -3rem;\n    bottom: 0.5rem;\n  }\n  .tb-ch .btn-round.collapse {\n      bottom: 3.5rem;\n    }\n  .tb-ch .controls {\n    position: absolute;\n    bottom: 0;\n    height: 225px;\n    border-top: 1px solid black;\n    padding: 0.5rem;\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n  }\n  .tb-ch .btn-text {\n    padding: 0.5rem;\n    text-align: center;\n    width: 100%;\n  }\n  .tb-ch input[type='range'] {\n    width: 100%;\n  }\n  .tb-ch .pois {\n    height: calc(100vh - 225px - 1rem);\n    overflow: scroll;\n    padding: 1rem 1rem 0;\n  }\n  .tb-ch .poi {\n    margin-bottom: 1rem;\n  }\n  .tb-ch .poi h2 {\n      font-size: 1rem;\n    }\n  .tb-ch .poi .wrapper {\n      display: flex;\n      flex-direction: row;\n    }\n  .tb-ch .poi img {\n      display: block;\n      max-width: 100%;\n      min-width: 0;\n      margin-right: 0.5rem;\n    }\n  .tb-ch .poi .poi-controls {\n      display: flex;\n      flex-direction: column;\n    }\n  .tb-ch .poi .poi-controls button {\n        padding: 0.5rem;\n        width: 2rem;\n        height: 2rem;\n        margin-bottom: 0.25rem;\n      }\n  .tb-ch .poi .poi-params {\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap;\n      width: calc(100% - 2.5rem);\n    }\n  .tb-ch .poi label,\n    .tb-ch .poi input,\n    .tb-ch .poi select {\n      width: 50%;\n      font-size: 0.7rem;\n      font-family: monospace;\n      margin: 0.25rem 0;\n    }\n  .tb-ch .poi input {\n      text-align: center;\n    }\n  .tb-ch .poiIndexSelector {\n    position: fixed;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 20rem;\n    height: 12rem;\n    background-color: white;\n    visibility: hidden;\n    border-radius: 1rem;\n    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));\n  }\n  .tb-ch .poiIndexSelector div {\n      width: 100%;\n      height: 4rem;\n      box-sizing: border-box;\n      padding: 0.25rem;\n      line-height: 3rem;\n      text-align: center;\n      font-size: 1.5rem;\n      border: 1px solid black;\n      cursor: pointer;\n      user-select: none;\n    }\n  .tb-ch .poiIndexSelector div:hover {\n      background-color: rgba(1, 1, 1, 0.1);\n    }\n  .tb-ch .poiIndexSelector div:active {\n      background-color: rgba(1, 1, 1, 0.3);\n      color: white;\n    }\n  .tb-ch .poiIndexSelector form {\n      width: 100%;\n      height: 4rem;\n      display: flex;\n    }\n  .tb-ch .poiIndexSelector form input {\n        font-size: 1.2rem;\n        line-height: 3rem;\n      }\n  .tb-ch .poiIndexSelector form input:nth-child(1) {\n        flex-basis: 80%;\n        padding: 0.25rem;\n      }\n  .tb-ch .poiIndexSelector form input:nth-child(2) {\n        flex-basis: 20%;\n      }\n";
 styleInject(css_248z);
 
 const easeFunctions = ['none', 'power1', 'power2', 'power3', 'power4', 'sine', 'expo', 'circ'];
@@ -1846,6 +1846,7 @@ const DOMClass = {
 class CameraHelper {
     constructor(rig, controls, canvas, canvasParent) {
         this.useSlerp = true;
+        this.tempCoord = null;
         this.rig = rig;
         this.controls = controls;
         this.canvas = canvas;
@@ -1854,6 +1855,8 @@ class CameraHelper {
         this.doCapture = false;
         this.isPlaying = false;
         this.initUI(canvasParent);
+        this.poiIndexSelected = null;
+        this.tempImage = null;
     }
     capture() {
         this.doCapture = true;
@@ -1866,8 +1869,8 @@ class CameraHelper {
             canvas.height = 360;
             ctx.drawImage(this.canvas, 0, 0, canvas.width, canvas.height);
             const image = canvas.toDataURL();
-            this.addPoi(image);
             this.doCapture = false;
+            this.addPoi(image);
         }
         if (this.isPlaying) {
             if (!this.playStartTime) {
@@ -1886,7 +1889,27 @@ class CameraHelper {
         }
     }
     addPoi(image) {
-        this.pois.push(Object.assign(Object.assign({}, this.rig.getWorldCoordinates()), { duration: 1, ease: 'power1', image }));
+        // 맨뒤에 점 추가
+        let res = null, coord = this.rig.getWorldCoordinates();
+        if (this.poiIndexSelected !== null) {
+            res = this.poiIndexSelected;
+            coord = this.tempCoord;
+            this.tempImage = null;
+            this.poiIndexSelected = null;
+            this.drawer.getElementsByClassName('poiIndexSelector')[0].style.visibility = 'hidden';
+        }
+        else if (this.pois.length >= 2) {
+            this.drawer.getElementsByClassName('poiIndexSelector')[0].style.visibility = 'visible';
+            this.drawer.querySelector('.poiIndexSelector form input').max = (this.pois.length - 1).toString();
+            this.tempImage = image;
+            this.tempCoord = coord;
+            return;
+        }
+        else {
+            res = this.pois.length;
+        }
+        const newPoi = Object.assign(Object.assign({}, coord), { duration: 1, ease: 'none', image });
+        this.pois.splice(res, 0, newPoi);
         this.currentIndex = this.pois.length - 1;
         this.createClip();
         this.render();
@@ -2100,7 +2123,40 @@ class CameraHelper {
         this.domList.onclick = this.handleEvents.bind(this);
         this.domList.onchange = this.handleEvents.bind(this);
         controlWrapper.append(this.fileInput, this.btnImport, btnPlay, sliderTime, bntExportImages, btnExportImages, btnExport);
-        this.drawer.append(btnAdd, this.collapseBtn, this.domList, controlWrapper);
+        // 위치 선택창 추가
+        const poiIndexSelector = document.createElement('div');
+        poiIndexSelector.classList.add('poiIndexSelector');
+        const poiAddOnStart = document.createElement('div');
+        poiAddOnStart.innerText = '처음에 추가하기';
+        poiAddOnStart.onclick = (() => {
+            this.poiIndexSelected = 0;
+            this.addPoi(this.tempImage);
+        }).bind(this);
+        const poiAddOnMiddleForm = document.createElement('form');
+        poiAddOnMiddleForm.onsubmit = ((e) => {
+            e.preventDefault();
+            this.poiIndexSelected = parseInt(e.target[0].value);
+            e.target[0].value = '';
+            this.addPoi(this.tempImage);
+        }).bind(this);
+        const poiAddOnMiddleInput = document.createElement('input');
+        poiAddOnMiddleInput.type = 'number';
+        poiAddOnMiddleInput.min = '1';
+        poiAddOnMiddleInput.value = '';
+        poiAddOnMiddleInput.placeholder = '몇번 뒤에 추가할까요?';
+        const poiAddOnMiddleSubmit = document.createElement('input');
+        poiAddOnMiddleSubmit.type = 'submit';
+        poiAddOnMiddleSubmit.value = '추가';
+        poiAddOnMiddleForm.append(poiAddOnMiddleInput, poiAddOnMiddleSubmit);
+        const poiAddOnLast = document.createElement('div');
+        poiAddOnLast.onclick = (() => {
+            this.poiIndexSelected = this.pois.length;
+            this.addPoi(this.tempImage);
+        }).bind(this);
+        poiAddOnLast.innerText = '마지막에 추가하기';
+        poiIndexSelector.append(poiAddOnStart, poiAddOnMiddleForm, poiAddOnLast);
+        // 커스텀 종료
+        this.drawer.append(btnAdd, this.collapseBtn, this.domList, controlWrapper, poiIndexSelector);
         const parent = canvasParent || document.body;
         parent.append(this.drawer);
     }
